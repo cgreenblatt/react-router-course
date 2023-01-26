@@ -25,7 +25,6 @@ export default function TeamPage() {
   const { teamId } = useParams();
 
   const { teamNames, articles, team, loading } = useTeamPageData(teamId);
-  console.log({ teamNames, articles, team });
 
   if (loading) {
     return <p>Loading</p>;
@@ -40,10 +39,11 @@ export default function TeamPage() {
       <TeamLogo id={teamId} />
       <h1 className="medium-header">{team.name}</h1>
       <h4 style={{ margin: 5 }}>
-        <Link to={{ pathname: '/players', search: `$teamId=${teamId}` }}>
+        <Link to={{ pathname: '/players', search: `?teamId=${teamId}` }}>
           View Roster
         </Link>
       </h4>
+      <h4>Championships</h4>
       <ul className="championships">
         {team.championships.map((ship) => (
           <li key={ship}>{ship}</li>
