@@ -1,4 +1,4 @@
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { Link, Outlet, useSearchParams, useLocation } from 'react-router-dom';
 import usePlayerNames from '../hooks/usePlayerNames';
 import { slugify } from '../utils';
 
@@ -47,8 +47,9 @@ export default function Players() {
   if (loading) return null;
 
   return (
-    <div className="container">
+    <div className="container two-column">
       <Sidebar title="Players" list={names} />
+      <Outlet />
     </div>
   );
 }
