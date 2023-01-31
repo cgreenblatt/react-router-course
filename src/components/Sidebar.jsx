@@ -3,8 +3,9 @@ import { slugify } from '../utils';
 
 function CustomLink({ to, children }) {
   const { pathname, search } = useLocation();
-  const playerId = pathname.split('/')[2];
-  const match = playerId === to;
+  const split = pathname.split('/');
+  const id = split[split.length - 1];
+  const match = id === to;
 
   const styles = match ? { fontWeight: 900, color: 'var(--white)' } : {};
 
