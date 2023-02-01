@@ -8,7 +8,7 @@ function Delayed({ children, wait = 500 }) {
     return () => {
       window.clearTimeout(timeoutId);
     };
-  });
+  }, []);
 
   return show ? children : null;
 }
